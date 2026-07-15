@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Canadian Tire Store Support Portal</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+
+    background:#f5f5f5;
+    color:#222;
+
+}
+
+/*************************
+HEADER
+**************************/
+
+header{
+
+    background:#d71920;
+    color:white;
+    padding:18px 28px;
+    box-shadow:0 3px 8px rgba(0,0,0,.25);
+
+}
+
+.logoRow{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+
+}
+
+.leftLogo{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.logo{
+
+    width:64px;
+    height:64px;
+    border-radius:10px;
+    background:white;
+    object-fit:contain;
+    padding:5px;
+
+}
+
+.company{
+
+    font-size:30px;
+    font-weight:700;
+
+}
+
+.portal{
+
+    font-size:14px;
+    opacity:.9;
+
+}
+
+.version{
+
+    font-size:14px;
+    text-align:right;
+
+}
+
+.blackBar{
+
+    background:#202020;
+    color:white;
+    padding:12px 25px;
+    font-size:15px;
+
+}
+
+/*************************
+CONTAINER
+**************************/
+
+.container{
+
+    max-width:900px;
+    margin:auto;
+    padding:25px;
+
+}
+
+.card{
+
+    background:white;
+    border-radius:12px;
+    padding:30px;
+    box-shadow:0 6px 20px rgba(0,0,0,.12);
+
+}
+
+h2{
+
+    color:#d71920;
+    margin-bottom:10px;
+
+}
+
+.sub{
+
+    color:#666;
+    margin-bottom:25px;
+
+}
+
+/*************************
+INPUTS
+**************************/
+
+label{
+
+    display:block;
+    margin-top:18px;
+    font-weight:600;
+
+}
+
+input,
+select,
+textarea{
+
+    width:100%;
+    margin-top:8px;
+    padding:14px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:15px;
+
+}
+
+textarea{
+
+    resize:vertical;
+
+}
+
+/*************************
+APPLICATION CARDS
+**************************/
+
+.apps{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-top:20px;
+
+}
+
+.appCard{
+
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:20px;
+    cursor:pointer;
+    transition:.25s;
+
+}
+
+.appCard:hover{
+
+    border-color:#d71920;
+    transform:translateY(-3px);
+
+}
+
+.appCard input{
+
+    width:auto;
+    margin-right:10px;
+
+}
+
+.appTitle{
+
+    font-size:18px;
+    font-weight:700;
+
+}
+
+.appDesc{
+
+    font-size:13px;
+    color:#666;
+    margin-top:8px;
+
+}
+
+/*************************
+BUTTONS
+**************************/
+
+.buttons{
+
+    margin-top:30px;
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+
+}
+
+.btn{
+
+    background:#d71920;
+    color:white;
+    border:none;
+    padding:14px 24px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+
+}
+
+.btn:hover{
+
+    background:#b8141a;
+
+}
+
+.secondary{
+
+    background:#444;
+
+}
+
+/*************************
+UTILITY
+**************************/
+
+.hidden{
+
+    display:none;
+
+}
+
+.badge{
+
+    display:inline-block;
+    background:#d71920;
+    color:white;
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:12px;
+
+}
+
+/*************************
+MOBILE
+**************************/
+
+@media(max-width:700px){
+
+.company{
+
+    font-size:22px;
+
+}
+
+.card{
+
+    padding:20px;
+
+}
+
+.buttons{
+
+    flex-direction:column;
+
+}
+
+.btn{
+
+    width:100%;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logoRow">
+
+<div class="leftLogo">
+
+<!-- Replace with approved Canadian Tire logo -->
+<img class="logo"
+src="https://s201.q4cdn.com/326551073/files/images/2025/03/7/CTC-site-Brandmark-ProudlyCanadian-Lockup-EN.png"
+alt="Canadian Tire Logo">
+
+<div>
+
+<div class="company">
+CANADIAN TIRE
+</div>
+
+<div class="portal">
+Store Technology Support Portal
+</div>
+
+</div>
+
+</div>
+
+<div class="version">
+
+Enterprise Demo<br>
+Version 1.0
+
+</div>
+
+</div>
+
+</header>
+
+<div class="blackBar">
+
+Production Support • QR Enabled • ServiceNow Integration
+
+</div>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+
+<div class="card" id="page1">
+
+<h2>Raise Store Technology Incident</h2>
+
+<div class="sub">
+Scan QR → Select Application → Describe Problem → ServiceNow Incident
+</div>
+
+<label>
+
+Store Number
+
+<input id="storeNumber"
+placeholder="Example: 0164">
+
+</label>
+
+<label>
+
+Banner
+
+<select id="banner">
+
+<option>Canadian Tire</option>
+
+<option>SportChek</option>
+
+<option>Mark's</option>
+
+<option>Party City</option>
+
+</select>
+
+</label>
+
+<div class="apps">
+
+<label class="appCard">
+
+<input type="radio"
+name="app"
+value="CCv2">
+
+<span class="appTitle">
+CCv2
+</span>
+
+<div class="appDesc">
+Cloud Commerce Platform
+</div>
+
+</label>
+
+<label class="appCard">
+
+<input type="radio"
+name="app"
+value="SFSc">
+
+<span class="appTitle">
+SFSc
+</span>
+
+<div class="appDesc">
+Store Fulfillment Services
+</div>
+
+</label>
+
+<label class="appCard">
+
+<input type="radio"
+name="app"
+value="DOM">
+
+<span class="appTitle">
+DOM
+</span>
+
+<div class="appDesc">
+Distributed Order Management
+</div>
+
+</label>
+
+<label class="appCard">
+
+<input type="radio"
+name="app"
+value="POS">
+
+<span class="appTitle">
+POS
+</span>
+
+<div class="appDesc">
+Point of Sale
+</div>
+
+</label>
+
+<label class="appCard">
+
+<input type="radio"
+name="app"
+value="COSTAR">
+
+<span class="appTitle">
+COSTAR
+</span>
+
+<div class="appDesc">
+Order Maintenance
+</div>
+
+</label>
+
+</div>
+
+<div class="buttons">
+
+<button class="btn" onclick="goNext()">
+
+Continue →
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ===========================
+PAGE 2 - ISSUE DETAILS
+=========================== -->
+
+<div class="card hidden" id="page2">
+
+<h2 id="selectedApplication">
+Application
+</h2>
+
+<div class="sub">
+Select the issue category and describe the problem.
+</div>
+
+<label>
+
+Issue Category
+
+<select id="issueType">
+
+</select>
+
+</label>
+
+<label>
+
+Problem Description
+
+<textarea
+id="problemDescription"
+rows="6"
+placeholder="Example:
+
+Store 0164 cannot process debit card payments.
+
+Issue started around 10:15 AM.
+
+Registers 2,3 and 4 are impacted.
+
+Approximately 15 customers waiting.
+"></textarea>
+
+</label>
+
+<label>
+
+Attach Screenshot (Optional)
+
+<input
+type="file"
+accept="image/*">
+
+</label>
+
+<div class="buttons">
+
+<button
+class="btn secondary"
+onclick="goBack()">
+
+← Back
+
+</button>
+
+<button
+class="btn"
+onclick="reviewIncident()">
+
+Review →
+
+</button>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- ===========================
+PAGE 3 - REVIEW
+=========================== -->
+
+<div
+class="card hidden"
+id="page3">
+
+<h2>
+Review Incident
+</h2>
+
+<div class="sub">
+
+Please verify the information before creating the ServiceNow incident.
+
+</div>
+
+<table style="width:100%;border-collapse:collapse;">
+
+<tr>
+
+<td style="padding:10px;font-weight:bold;">
+Store
+</td>
+
+<td id="reviewStore"></td>
+
+</tr>
+
+<tr>
+
+<td style="padding:10px;font-weight:bold;">
+Banner
+</td>
+
+<td id="reviewBanner"></td>
+
+</tr>
+
+<tr>
+
+<td style="padding:10px;font-weight:bold;">
+Application
+</td>
+
+<td id="reviewApplication"></td>
+
+</tr>
+
+<tr>
+
+<td style="padding:10px;font-weight:bold;">
+Issue
+</td>
+
+<td id="reviewIssue"></td>
+
+</tr>
+
+<tr>
+
+<td style="padding:10px;font-weight:bold;">
+Priority
+</td>
+
+<td>
+
+<span
+class="badge"
+id="reviewPriority">
+P2
+</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="padding:10px;font-weight:bold;vertical-align:top;">
+Description
+</td>
+
+<td id="reviewDescription"></td>
+
+</tr>
+
+</table>
+
+<div class="buttons">
+
+<button
+class="btn secondary"
+onclick="editIncident()">
+
+← Edit
+
+</button>
+
+<button
+class="btn"
+onclick="submitIncident()">
+
+Create Incident
+
+</button>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- ===========================
+LOADING PAGE
+=========================== -->
+
+<div
+class="card hidden"
+id="loadingPage">
+
+<div
+style="text-align:center;">
+
+<div
+style="
+width:70px;
+height:70px;
+border:8px solid #ddd;
+border-top:8px solid #d71920;
+border-radius:50%;
+margin:auto;
+animation:spin 1s linear infinite;">
+</div>
+
+<h2 style="margin-top:30px;">
+Creating ServiceNow Incident...
+</h2>
+
+<p>
+Please wait while we submit your incident.
+</p>
+
+</div>
+
+</div>
+
+<style>
+
+@keyframes spin{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+</style>
+
+
+
+
+
+
+
+<!-- ===========================
+SUCCESS PAGE
+=========================== -->
+
+<div
+class="card hidden"
+id="page4">
+
+<div style="text-align:center;">
+
+<h1
+style="color:#2e7d32;">
+✓
+</h1>
+
+<h2>
+Incident Created Successfully
+</h2>
+
+<p>
+
+Your incident has been submitted to
+Store Technology Support.
+
+</p>
+
+<div
+style="
+margin:25px auto;
+padding:20px;
+background:#f4f4f4;
+border-radius:10px;
+font-size:34px;
+font-weight:bold;
+color:#d71920;">
+
+INC00124567
+
+</div>
+
+<div
+style="
+text-align:left;
+margin-top:25px;">
+
+<p>
+<b>Status:</b> New
+</p>
+
+<p>
+<b>Assignment Group:</b> Store Technology Support
+</p>
+
+<p>
+<b>Priority:</b>
+
+<span
+class="badge"
+id="successPriority">
+
+P2
+
+</span>
+
+</p>
+
+<p>
+<b>Estimated Response:</b>
+
+30 Minutes
+
+</p>
+
+</div>
+
+<div class="buttons">
+
+<button
+class="btn"
+onclick="location.reload()">
+
+Raise Another Incident
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+
+/*
+===========================================
+QR CODE STORE AUTO DETECTION
+
+Example QR URL:
+
+canadiantire-demo.html?store=0164
+
+The store number will automatically populate.
+
+===========================================
+*/
+
+
+window.onload=function(){
+
+const params =
+new URLSearchParams(window.location.search);
+
+
+const store =
+params.get("store");
+
+
+if(store){
+
+document.getElementById("storeNumber").value=store;
+
+}
+
+};
+
+
+
+
+
+/*
+===========================================
+APPLICATION ISSUE MAPPING
+===========================================
+*/
+
+
+const issueMatrix={
+
+
+CCv2:[
+
+"Checkout Failure",
+
+"Payment Authorization Failure",
+
+"Product Search Issue",
+
+"Customer Login Failure"
+
+],
+
+
+SFSc:[
+
+"Order Missing",
+
+"Pick List Not Generated",
+
+"Inventory Sync Issue",
+
+"Shipment Failure"
+
+],
+
+
+DOM:[
+
+"Order Routing Failure",
+
+"Order Stuck",
+
+"Order Cancellation Failure"
+
+],
+
+
+POS:[
+
+"Transaction Failure",
+
+"Payment Terminal Offline",
+
+"Receipt Printing Issue",
+
+"Pricing Issue"
+
+],
+
+
+COSTAR:[
+
+"Order Lookup Failure",
+
+"Refund Issue",
+
+"Order Maintenance Error"
+
+]
+
+
+};
+
+
+
+let selectedApp="";
+
+let selectedIssue="";
+
+let priority="P3";
+
+
+
+
+
+/*
+===========================================
+MOVE TO ISSUE PAGE
+===========================================
+*/
+
+
+function goNext(){
+
+
+let selected =
+document.querySelector(
+'input[name="app"]:checked'
+);
+
+
+if(!selected){
+
+alert(
+"Please select an application"
+);
+
+return;
+
+}
+
+
+
+selectedApp =
+selected.value;
+
+
+
+document.getElementById(
+"page1"
+).classList.add("hidden");
+
+
+document.getElementById(
+"page2"
+).classList.remove("hidden");
+
+
+
+document.getElementById(
+"selectedApplication"
+).innerHTML =
+selectedApp+" Issue Selection";
+
+
+
+let dropdown =
+document.getElementById(
+"issueType"
+);
+
+
+
+dropdown.innerHTML="";
+
+
+
+issueMatrix[selectedApp].forEach(
+function(item){
+
+
+let option =
+document.createElement(
+"option"
+);
+
+
+option.value=item;
+
+option.text=item;
+
+
+dropdown.appendChild(option);
+
+
+}
+
+);
+
+
+}
+
+
+
+
+
+/*
+===========================================
+BACK
+===========================================
+*/
+
+
+function goBack(){
+
+
+page2.classList.add("hidden");
+
+page1.classList.remove("hidden");
+
+
+}
+
+
+
+
+function editIncident(){
+
+
+page3.classList.add("hidden");
+
+page2.classList.remove("hidden");
+
+
+}
+
+
+
+
+
+
+
+/*
+===========================================
+REVIEW INCIDENT
+===========================================
+*/
+
+
+function reviewIncident(){
+
+
+
+selectedIssue =
+document.getElementById(
+"issueType"
+).value;
+
+
+
+let description =
+document.getElementById(
+"problemDescription"
+).value;
+
+
+
+if(description.trim()==""){
+
+
+alert(
+"Please enter problem description"
+);
+
+
+return;
+
+}
+
+
+
+
+/*
+Priority rules demo
+
+Critical payment failures = P2
+
+General issues = P3
+
+*/
+
+
+if(
+
+selectedIssue.includes("Payment")
+
+||
+selectedIssue.includes("Failure")
+
+)
+
+{
+
+priority="P2";
+
+}
+
+else{
+
+priority="P3";
+
+}
+
+
+
+
+
+document.getElementById(
+"reviewStore"
+).innerHTML =
+document.getElementById(
+"storeNumber"
+).value;
+
+
+
+document.getElementById(
+"reviewBanner"
+).innerHTML =
+document.getElementById(
+"banner"
+).value;
+
+
+
+document.getElementById(
+"reviewApplication"
+).innerHTML =
+selectedApp;
+
+
+
+document.getElementById(
+"reviewIssue"
+).innerHTML =
+selectedIssue;
+
+
+
+document.getElementById(
+"reviewPriority"
+).innerHTML =
+priority;
+
+
+
+document.getElementById(
+"reviewDescription"
+).innerHTML =
+description;
+
+
+
+page2.classList.add("hidden");
+
+page3.classList.remove("hidden");
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+===========================================
+SERVICENOW CREATE INCIDENT
+===========================================
+
+
+Production Example:
+
+
+POST
+
+https://your-instance.service-now.com/api/now/table/incident
+
+
+Headers:
+
+Authorization:
+Bearer TOKEN
+
+
+Body:
+
+{
+short_description:
+"[POS] Payment Failure",
+
+description:
+"Store problem",
+
+impact:"2",
+
+urgency:"2"
+}
+
+
+IMPORTANT:
+
+Do NOT store ServiceNow credentials
+inside browser HTML.
+
+Use Azure Function/API Gateway.
+
+===========================================
+*/
+
+
+async function submitIncident(){
+
+
+
+page3.classList.add("hidden");
+
+
+loadingPage.classList.remove("hidden");
+
+
+
+
+let payload={
+
+
+short_description:
+
+"["+
+selectedApp+
+"] "+
+selectedIssue,
+
+
+
+description:
+
+
+"Store: "+
+document.getElementById(
+"storeNumber"
+).value+
+
+
+"\nBanner: "+
+document.getElementById(
+"banner"
+).value+
+
+
+"\nApplication: "+
+selectedApp+
+
+
+"\nIssue: "+
+selectedIssue+
+
+
+"\nDetails: "+
+document.getElementById(
+"problemDescription"
+).value,
+
+
+
+impact:
+
+priority=="P2"
+?
+"2"
+:
+"3",
+
+
+
+urgency:
+
+priority=="P2"
+?
+"2"
+:
+"3"
+
+
+};
+
+
+
+
+
+console.log(
+"ServiceNow Payload",
+payload
+);
+
+
+
+
+
+/*
+
+DEMO RESPONSE
+
+Replace this block with:
+
+fetch()
+
+calling your API.
+
+*/
+
+
+setTimeout(
+
+function(){
+
+
+
+loadingPage.classList.add(
+"hidden"
+);
+
+
+page4.classList.remove(
+"hidden"
+);
+
+
+
+document.getElementById(
+"successPriority"
+).innerHTML =
+priority;
+
+
+
+},
+
+2000
+
+);
+
+
+
+}
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
